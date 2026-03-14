@@ -1,6 +1,6 @@
-# 客户端命令(docker)
+## 客户端命令 - docker
 
-## 客户端命令选项
+### 客户端命令选项
 
 * `--config=""`：指定客户端配置文件，默认为 `~/.docker`；
 * `-D=true|false`：是否使用 debug 模式。默认不开启；
@@ -9,10 +9,10 @@
 * `--tls=true|false`：是否对 Docker 守护进程启用 TLS 安全机制，默认为否；
 * `--tlscacert=/.docker/ca.pem`：TLS CA 签名的可信证书文件路径；
 * `--tlscert=/.docker/cert.pem`：TLS 可信证书文件路径；
-* `--tlscert=/.docker/key.pem`：TLS 密钥文件路径；
+* `--tlskey=/.docker/key.pem`：TLS 密钥文件路径；
 * `--tlsverify=true|false`：启用 TLS 校验，默认为否。
 
-## 客户端命令
+### 客户端命令
 
 可以通过 `docker COMMAND --help` 来查看这些命令的具体用法。
 
@@ -27,7 +27,7 @@
 * `export`：导出容器内容为一个 `tar` 包；
 * `history`：显示一个镜像的历史信息；
 * `images`：列出存在的镜像；
-* `import`：导入一个文件（典型为 `tar` 包）路径或目录来创建一个本地镜像；
+* `import`：导入一个文件 (典型为 `tar` 包) 路径或目录来创建一个本地镜像；
 * `info`：显示一些相关的系统信息；
 * `inspect`：显示一个容器的具体配置信息；
 * `kill`：关闭一个运行中的容器 (包括进程和所有相关资源)；
@@ -40,7 +40,7 @@
 * `pause`：暂停一个容器中的所有进程；
 * `port`：查找一个 nat 到一个私有网口的公共口；
 * `ps`：列出主机上的容器；
-* `pull`：从一个Docker的仓库服务器下拉一个镜像或仓库；
+* `pull`：从一个 Docker 的仓库服务器下拉一个镜像或仓库；
 * `push`：将一个镜像或者仓库推送到一个 Docker 的注册服务器；
 * `rename`：重命名一个容器；
 * `restart`：重启一个运行中的容器；
@@ -51,7 +51,7 @@
 * `search`：在 Docker index 中搜索一个镜像；
 * `service`：管理 Docker 所启动的应用服务，包括创建、更新、删除等；
 * `start`：启动一个容器；
-* `stats`：输出（一个或多个）容器的资源使用统计信息；
+* `stats`：输出 (一个或多个) 容器的资源使用统计信息；
 * `stop`：终止一个运行中的容器；
 * `swarm`：管理 Docker swarm 集群，包括创建、加入、退出、更新等；
 * `tag`：为一个镜像打标签；
@@ -62,9 +62,14 @@
 * `volume`：管理 Docker volume，包括查看、创建、删除等；
 * `wait`：阻塞直到一个容器终止，然后输出它的退出符。
 
-## 一张图总结 Docker 的命令
-![Docker 命令总结](../_images/cmd_logic.png)
+### 一张图总结 Docker 的命令
 
-## 参考
+如图 16-1 所示，Docker 常用客户端命令可按功能分组理解。
 
-* [官方文档](https://docs.docker.com/engine/reference/commandline/cli/)
+![Docker 命令总结](../../_images/cmd_logic.jpg)
+
+图 A-1：Docker 客户端命令分类示意图
+
+### 参考
+
+* [官方文档](https://docs.docker.com/reference/cli/docker/)

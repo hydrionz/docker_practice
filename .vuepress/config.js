@@ -106,7 +106,7 @@ module.exports = config({
       },
       {
         text: '安装 Docker',
-        link: '/install/',
+        link: '/03_install/',
       },
       {
         text: 'Docker 入门',
@@ -114,23 +114,23 @@ module.exports = config({
       },
       {
         text: 'Docker 实战',
-        link: '/cases/os/'
+        link: '/15_cases/os/'
       },
       {
         text: 'CI/CD',
-        link: '/cases/ci/'
+        link: '/15_cases/ci/'
       },
       {
         text: 'Compose',
-        link: '/compose/',
+        link: '/10_compose/',
       },
       {
         text: 'Kubernetes',
-        link: '/kubernetes/',
+        link: '/12_orchestration/kubernetes/',
       },
       {
         text: "云计算",
-        link: "/cloud/",
+        link: "/13_ecosystem/cloud/",
       },
       // {
       //   text: 'GitHub',
@@ -152,7 +152,8 @@ module.exports = config({
       //   }]
       // }
     ],
-    sidebar: {
+    sidebar: "auto",
+    legacySidebar: {
       '/cloud/': [
         'intro',
         'tencentCloud',
@@ -295,8 +296,8 @@ module.exports = config({
             'image/dockerfile/shell',
             'image/dockerfile/onbuild',
             'image/dockerfile/references',
-            'image/multistage-builds/',
-            'image/multistage-builds/laravel',
+            'image/dockerfile/7.17_multistage_builds.md',
+            'image/dockerfile/7.18_multistage_builds_laravel.md',
             'image/manifest',
           ]
         }, {

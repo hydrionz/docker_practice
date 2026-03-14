@@ -1,9 +1,9 @@
+name: CI
+
 on:
   push:
   pull_request:
   workflow_dispatch:
-
-name: CI
 
 defaults:
   run:
@@ -14,9 +14,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-        with:
-          fetch-depth: 2
+      - uses: actions/checkout@v6.0.2
       - name: Build Gitbook
         uses: docker://yeasy/docker_practice
         with:
@@ -68,8 +66,8 @@ jobs:
           PCIT_USERNAME: khs1994
       - name: vuepress
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           sudo rm -rf _book
-          # npm i vuepress --save-dev
           npm i
 
           git clone https://github.com/docker-practice/.vuepress  .vuepress2
@@ -80,22 +78,19 @@ jobs:
           npx vuepress --version
 
           npm run vuepress:build
-          # echo "vuepress.docker-practice.com" > .vuepress/dist/CNAME
           echo "vuepress.mirror.docker-practice.com" > .vuepress/dist/CNAME
 
           cp -r _images .vuepress/dist
-          cp -r advanced_network/_images .vuepress/dist/advanced_network
+          mkdir -p .vuepress/dist/appendix
           cp -r appendix/_images .vuepress/dist/appendix
-          cp -r cases/ci/drone/_images .vuepress/dist/cases/ci/drone
-          cp -r cases/os/_images .vuepress/dist/cases/os
-          cp -r cloud/_images .vuepress/dist/cloud
-          cp -r data_management/_images .vuepress/dist/data_management
-          cp -r etcd/_images .vuepress/dist/etcd
-          cp -r image/_images .vuepress/dist/image
-          cp -r install/_images .vuepress/dist/install
-          cp -r introduction/_images .vuepress/dist/introduction
-          cp -r kubernetes/_images .vuepress/dist/kubernetes
-          cp -r underly/_images .vuepress/dist/underly
+          mkdir -p .vuepress/dist/cloud
+          cp -r 16_cloud/_images .vuepress/dist/cloud
+          mkdir -p .vuepress/dist/data_management
+          cp -r 08_data/_images .vuepress/dist/data_management
+          mkdir -p .vuepress/dist/etcd
+          cp -r 15_etcd/_images .vuepress/dist/etcd
+          mkdir -p .vuepress/dist/kubernetes
+          cp -r 13_kubernetes_concepts/_images .vuepress/dist/kubernetes
 
           echo "include: [_images]" > .vuepress/dist/_config.yml
       - name: Upload Vuepress dist

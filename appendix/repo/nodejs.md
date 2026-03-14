@@ -1,18 +1,19 @@
-# [Node.js](https://hub.docker.com/_/node/)
+## Node.js
 
-## 基本信息
+### 基本信息
 
 [Node.js](https://en.wikipedia.org/wiki/Node.js) 是基于 JavaScript 的可扩展服务端和网络软件开发平台。
 
-该仓库位于 `https://hub.docker.com/_/node/` ，提供了 Node.js 0.10 ~ 14.x 各个版本的镜像。
+该仓库位于 `https://hub.docker.com/_/node/`。具体可用版本以 Docker Hub 上的 tags 列表为准。
 
-## 使用方法
+### 使用方法
 
 在项目中创建一个 Dockerfile。
 
 ```docker
-FROM node:12
-# replace this with your application's default port
+FROM node:20
+## replace this with your application's default port
+
 EXPOSE 8888
 ```
 
@@ -28,13 +29,14 @@ $ docker run -it --rm --name my-running-app my-nodejs-app
 ```bash
 $ docker run -it --rm \
     --name my-running-script \
-    # -v "$(pwd)":/usr/src/myapp \
-    --mount type=bind,src=`$(pwd)`,target=/usr/src/myapp \
+    # -v "$ ":/usr/src/myapp \
+
+    --mount type=bind,src="$(pwd)",target=/usr/src/myapp \
     -w /usr/src/myapp \
-    node:12-alpine \
+    node:20-alpine \
     node your-daemon-or-script.js
 ```
 
-## Dockerfile
+### Dockerfile
 
 请到 https://github.com/docker-library/docs/tree/master/node 查看。
